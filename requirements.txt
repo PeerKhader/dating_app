@@ -4,7 +4,7 @@ certifi==2023.7.22
 charset-normalizer==3.2.0
 crispy-bootstrap4==2022.1
 crispy-bootstrap5==0.7
-crispy-bulma==0.10.0
+crispy-bulma
 distlib==0.3.7
 dj-database-url==2.1.0
 -e git+https://github.com/django/django.git@64cea1e48f285ea2162c669208d95188b32bbc82#egg=Django

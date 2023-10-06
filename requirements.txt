@@ -45,7 +45,7 @@ stripe==6.5.0
 text-unidecode
 typing_extensions
 tzdata==2023.3
-urllib3==2.0.4
+urllib3
 virtualenv==20.24.5
 whitenoise==6.5.0
-django
+django==4.1.6

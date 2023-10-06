@@ -7,7 +7,6 @@ crispy-bootstrap5==0.7
 crispy-bulma
 distlib==0.3.7
 dj-database-url==2.1.0
--e git+https://github.com/django/django.git@64cea1e48f285ea2162c669208d95188b32bbc82#egg=Django
 django-appconf==1.0.5
 django-crispy-forms==2.0
 django-elasticsearch-dsl==7.3

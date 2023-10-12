@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'account',
     'search',
     'storages',
-    'payments',
     'django.contrib.sites',
 ]
 SITE_ID = 1

@@ -60,13 +60,17 @@ INSTALLED_APPS = [
     'checkout',
     'account',
     'search',
-    'storages'
+    'storages',
+    'payments',
+    'django.contrib.sites',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
+   # 'common.middlewares.AjaxMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -93,7 +97,7 @@ TEMPLATES = [
     },
 ]
 
-AWS_DEFAULT_ACL = None
+
 
 WSGI_APPLICATION = 'dating_app.wsgi.application'
 
@@ -114,21 +118,7 @@ else:
 
 
 
-AWS_S3_OBJECT_PARAMETERS = {
-    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    'CacheControl': 'max-age=94608000'
-}
-#AWS_STORAGE_BUCKET_NAME = 'dating-app-mvd'
-#AWS_S3_REGION_NAME = 'eu-west-1'
 
-AWS_STORAGE_BUCKET_NAME = 'wedding-app-mvd'
-AWS_S3_REGION_NAME = 'ap-south-1'
-AWS_S3_SIGNATURE_NAME = 's3v4'
-AWS_ACCESS_KEY_ID = "AKIA3PID3UBRZSVOUWOV"  
-AWS_SECRET_ACCESS_KEY = "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"
-
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_FILE_OVERWRITE= False
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -165,6 +155,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'marriage1/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+DATE_FORMAT = "d-m-Y"
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
+USE_L10N = False
+
+"""
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
@@ -183,9 +190,13 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+"""
 
 # Change to a different email address
 EMAIL_HOST_USER = os.environ.get("kpeerkhadermydeen@gmail.com")
@@ -198,8 +209,8 @@ EMAIL_PORT = 587
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', 'profiles.backend.EmailAuth']
     
-STRIPE_PUBLISHABLE = os.environ.get('stripe_publishable')
-STRIPE_SECRET = os.environ.get('stripe_key')
+STRIPE_PUBLISHABLE = os.environ.get('pk_live_51NjargSFFCR6E4tM54PfZi0BapwOmHGEl9TOi57sjDCwcBSbQ1DHwsEVIoUqCBoc7T132In3da2b1s4tq1eBGysX00JVgdyufe')
+STRIPE_SECRET = os.environ.get('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')
 
 LOGGING = {
     'version': 1,

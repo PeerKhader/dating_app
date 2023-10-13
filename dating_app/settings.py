@@ -98,7 +98,7 @@ TEMPLATES = [
 
 
 
-WSGI_APPLICATION = 'dating_app.wsgi.application'
+WSGI_APPLICATION = 'matrimony.wsgi.application'
 
 
 # Database

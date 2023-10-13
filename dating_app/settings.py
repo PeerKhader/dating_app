@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'search',
     'storages',
     'django.contrib.sites',
+    'render.apps.RenderConfig'
 ]
 SITE_ID = 1
 MIDDLEWARE = [

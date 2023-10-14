@@ -104,8 +104,8 @@ WSGI_APPLICATION = 'dating_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 # Live uses Postgres db and local/testing uses SQLite
-if "DATABASES_URL" in os.environ:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASES_URL'))}
+if "DATABASE_URL" in os.environ:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     print("Database URL not found. Using SQLite instead")
     DATABASES = {

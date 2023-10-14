@@ -111,8 +111,13 @@ else:
     print("Database URL not found. Using SQLite instead")
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dating_app_tlls_user',
+        'USER': 'dating_app_tlls_user',
+        'PASSWORD': 'tq73wZcYafwK4J9jZHz8jcsYUWGndjSb',
+        'HOST': 'dpg-ckl19pbj89us73bojvhg-a',
+        'PORT': '5432'
+           
         }
     }
 

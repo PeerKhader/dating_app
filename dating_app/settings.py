@@ -110,13 +110,9 @@ if "DATABASE_URL" in os.environ:
 else:
     print("Database URL not found. Using SQLite instead")
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'dating_app_tlls_user',
-        'USER': 'dating_app_tlls_user',
-        'PASSWORD': 'tq73wZcYafwK4J9jZHz8jcsYUWGndjSb',
-        'HOST': 'dpg-ckl19pbj89us73bojvhg-a',
-        'PORT': '5432'
+        'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost/postgres',
+        conn_max_age=6000
            
         }
     }

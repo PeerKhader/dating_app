@@ -50,3 +50,4 @@ virtualenv==20.24.5
 whitenoise==6.5.0
 django==4.1.6
 gunicorn
+psycopg2-binary

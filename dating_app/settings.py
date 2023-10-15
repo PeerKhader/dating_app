@@ -109,13 +109,12 @@ if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     print("Database URL not found. Using SQLite instead")
-    DATABASES = {
-        'default': dj_database_url.config(
+   DATABASES = {
+    'default': dj_database_url.config(
         default='postgresql://postgres:postgres@localhost/postgres',
-        conn_max_age=6000
-           
-        }
-    }
+        conn_max_age=600
+    )
+}
 
 
 

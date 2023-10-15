@@ -110,10 +110,10 @@ if "DATABASE_URL" in os.environ:
 else:
     print("Database URL not found. Using SQLite instead")
    DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
